@@ -1,16 +1,56 @@
-= couchlogic
+= Couchlogic
 
-Description goes here.
+Couchlogic is a Ruby interface for (CouchDB)[http://couchdb.apache.org/]. It aims to provide an intuitive, flexible Ruby interface for 
+interacting with your couch.
 
-== Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+While the learning curve for Couchlogic may be a little higher than other 
+gems, you'll find that you experience fewer growing pains as your knowledge of 
+CouchDB deepens.
+
+== Project Goals
+
+=== Intuitive API 
+
+Even though Couchlogic doesn't require Rails, there are some conventions for 
+working with models that people are used to and Couchlogic should support 
+them.
+
+=== Performance 
+
+HTTP & JSON are CouchDB currency. Above all else, Couchlogic should be able to 
+cut through these as fast as possible.
+
+=== Clean code 
+
+Writing Javascript in your views is ugly and so is defining every single 
+property of a model within the model. Couchlogic should allow you to store all 
+Javascript code in Javascript files that are checked into your version control
+system.
+
+=== Great Documentation
+
+This is a crucial piece of your stack. You shouldn't have to dig through the
+codebase to figure which arguments a method accepts or what to name your 
+config file.
+
+== Supported Features
+
+
+
+== Planned Features
+
+* Save/Create/Update/Destroy hooks; these won't be Rails dependent
+
+== Dependencies
+
+Couchlogic Wrap stands on the shoulders of giants:
+
+* {yajl-ruby}[http://github.com/brianmario/yajl-ruby]
+* {curb}[http://github.com/taf2/curb]
+
+== Author
+
+* (Mauricio Gomes)[http://github.com/mgomes]
 
 == Copyright
 
