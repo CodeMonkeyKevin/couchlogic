@@ -1,6 +1,6 @@
 = Couchlogic
 
-Couchlogic is a Ruby interface for (CouchDB)[http://couchdb.apache.org/]. It aims to provide an intuitive, flexible Ruby interface for 
+Couchlogic is a Ruby interface for {CouchDB}[http://couchdb.apache.org/]. It aims to provide an intuitive, flexible Ruby interface for 
 interacting with your couch.
 
 While the learning curve for Couchlogic may be a little higher than other 
@@ -43,14 +43,14 @@ config file.
 
 == Dependencies
 
-Couchlogic Wrap stands on the shoulders of giants:
+Couchlogic stands on the shoulders of giants:
 
 * {yajl-ruby}[http://github.com/brianmario/yajl-ruby]
 * {curb}[http://github.com/taf2/curb]
 
 == Author
 
-* (Mauricio Gomes)[http://github.com/mgomes]
+* {Mauricio Gomes}[http://github.com/mgomes]
 
 == Copyright
 
