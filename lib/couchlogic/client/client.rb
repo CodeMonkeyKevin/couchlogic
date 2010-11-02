@@ -194,7 +194,7 @@ module Couchlogic
 
         until response['ok'] || update_limit <= 0
           doc = get(Endpoint.document_uri(doc_id), params)
-          new_doc = yield doc
+          new_doc = yield(doc)
           begin
             response = save_doc(new_doc)
           rescue Couchlogic::RequestFailed => e
