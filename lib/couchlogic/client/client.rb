@@ -93,7 +93,7 @@ module Couchlogic
           doc['_rev'] = response['rev']
         end
         
-        doc
+        response
       end
       
       # Save a document to CouchDB in bulk mode
