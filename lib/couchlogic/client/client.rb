@@ -131,6 +131,12 @@ module Couchlogic
         post Endpoint.bulk_docs_uri, { :docs => docs }
       end
       alias :bulk_delete :bulk_save
+      
+      # Fetches a document given a document ID
+      def fetch_doc(id, params = {})
+        slug = escape_docid(id)
+        get Endpoint.document_uri(slug), params
+      end
 
       # Deletes the specified document from CouchDB. 
       # The corresponding document must have matching <tt>_id</tt> and 
