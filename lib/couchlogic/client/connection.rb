@@ -136,6 +136,8 @@ module Couchlogic
           raise Unauthorized
         when 404
           raise NotFound
+        when 412
+          raise AlreadyExists, response.message
         when 500
           raise ServerError, "CouchDB Error: #{response_description}"
         when 502..503
