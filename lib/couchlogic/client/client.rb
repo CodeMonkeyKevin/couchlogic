@@ -379,6 +379,11 @@ module Couchlogic
         attachments
       end
       
+      # Sanatize given URI paramter
+      def s(param)
+        URI.escape param
+      end
+      
       def escape_docid(id)      
         /^_design\/(.*)/ =~ id ? "_design/#{s($1)}" : s(id) 
       end
