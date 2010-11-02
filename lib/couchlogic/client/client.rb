@@ -192,7 +192,7 @@ module Couchlogic
         new_doc = nil
         last_fail = nil
 
-        while response['ok'] || update_limit <= 0
+        until response['ok'] || update_limit <= 0
           doc = get(Endpoint.document_uri(doc_id), params)
           new_doc = yield doc
           begin
