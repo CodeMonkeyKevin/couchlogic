@@ -39,52 +39,18 @@ describe "Couchlogic client" do
   
   describe "managing the CouchDB server" do
     
-    # it "should restart" do
-    #   @client.restart!
-    #   begin
-    #     @client.database_info
-    #   rescue
-    #     sleep 0.2
-    #     retry
-    #   end
-    # end
+    #it "should restart" do
+    #  @client.restart!
+    #  begin
+    #    @client.database_info
+    #  rescue
+    #    sleep 0.2
+    #    retry
+    #  end
+    #end
   
-    it "should provide an array of uuids when requested" do
+    it "should provide a uuid when requested" do
       @client.next_uuid.should_not be_nil
-    end
-    
-  end
-  
-  describe "managing a database" do
-    
-    it "should get info about the current database" do
-      response = @client.database_info
-      response["db_name"].should == TESTDB
-      response.class.should == Hash
-    end
-    
-    it "should create a database" do
-      Couchlogic.couchdb = TESTDB2
-      @client.databases.should_not include(TESTDB2)
-      @client.create!
-      @client.databases.should include(TESTDB2)
-      @client.delete!(true)
-    end
-    
-    it "should NOT delete a database unless a confirm flag is present" do
-      @client.databases.should include(TESTDB)
-      @client.delete!
-      @client.databases.should include(TESTDB)
-    end
-    
-    it "should delete a database when a confirm flag is present" do
-      @client.databases.should include(TESTDB)
-      @client.delete!(true)
-      @client.databases.should_not include(TESTDB)
-    end
-    
-    it "should compact a database" do
-      @client.compact!
     end
     
   end

@@ -14,12 +14,15 @@ unless defined?(FIXTURE_PATH)
   REPLICATIONDB = 'couchlogic-test-replication'
 end
 
-def reset_test_db!
-  if Couchlogic::Client.databases.include?(TESTDB)
+def reset_test_db!    
+  begin
     Couchlogic::Client.delete!(true)
+  rescue
+  end
+  
+  begin
     Couchlogic::Client.create!
-  else
-    Couchlogic::Client.create!
+  rescue
   end
 end
 
@@ -35,7 +38,7 @@ RSpec.configure do |config|
     reset_test_db!
   end
   
-  # config.after(:all) { Couchlogic::Client.delete!(true) }
+  config.after(:suite) { Couchlogic::Client.delete!(true) }
 end
 
 def couchdb_lucene_available?
