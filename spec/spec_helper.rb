@@ -15,27 +15,22 @@ unless defined?(FIXTURE_PATH)
 end
 
 def reset_test_db!    
-  begin
-    Couchlogic::Client.delete!(true)
-  rescue
-  end
-  
-  begin
-    Couchlogic::Client.create!
-  rescue
-  end
+  Couchlogic::Client.delete!(true) rescue nil
+  Couchlogic::Client.create! rescue nil
 end
 
-RSpec.configure do |config|
-  config.before(:all) do 
-    
+RSpec.configure do |config|  
+  config.before(:all) do
+    Couchlogic.couchdb = TESTDB
+    Couchlogic::Client.proxy = nil
+    Couchlogic::Client.debug = false
+    reset_test_db!
   end
   
   config.before(:each) do
     Couchlogic.couchdb = TESTDB
     Couchlogic::Client.proxy = nil
     Couchlogic::Client.debug = false
-    reset_test_db!
   end
   
   config.after(:suite) { Couchlogic::Client.delete!(true) }

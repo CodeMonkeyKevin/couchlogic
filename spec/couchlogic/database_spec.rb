@@ -33,6 +33,7 @@ describe "Managing a database" do
   end
 
   it "should compact a database" do
+    @client.create! rescue nil
     @client.compact!
   end
   
